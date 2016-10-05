@@ -1205,7 +1205,7 @@ func (d *cephRBDVolumeDriver) verifyDeviceFilesystem(device, fstype string) erro
 
 // mountDevice will call mount on kernel device with a docker volume subdirectory
 func (d *cephRBDVolumeDriver) mountDevice(device, mountdir, fstype string) error {
-	_, err := shWithDefaultTimeout("mount", "-t", fstype, "-o", "sync", device, mountdir)
+	_, err := shWithDefaultTimeout("mount", "-t", fstype, device, mountdir)
 	return err
 }
 
